@@ -1,0 +1,247 @@
+@import 'utils/resets.scss';
+@import 'utils/typography.scss';
+@import 'utils/colors-general.scss';
+@import 'utils/mixins.scss';
+
+.dashboard {
+     background-color: $bg-main;
+     &__container {
+          padding: 2.4rem 1.5rem;
+     }
+     &__main {
+          margin-bottom: 3rem;
+     }
+     &__today {
+
+     }
+}
+.main {
+     &__header {
+          display: flex;
+          flex-direction: column;
+     }
+     &__content {
+          position: relative;
+          padding-bottom: 1.6rem;
+          font-family: 'Inter Bold', sans-serif;
+          font-weight: 700;
+          &::after {
+               content: '';
+               position: absolute;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               height: 1px;
+               background-color: $text-primary;
+          }
+     }
+     &__title {
+          margin-bottom: 0.5rem;
+          color: $text-secondary;
+          font-size: 1.5rem;
+          letter-spacing: 0.3px;
+     }
+     &__total {
+          letter-spacing: 0.5px;
+     }
+     &__switch {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 0;
+     }
+     &__cards {
+          display: flex;
+          flex-direction: column;
+     }
+}
+.secondary {
+     &__title {
+          margin-bottom: 1rem;
+          color: $text-secondary;
+          font-size: 1.5rem;
+          letter-spacing: 1px;
+     }
+     &__cards {
+          display: flex;
+          flex-direction: column;
+     }
+}
+.switch {
+     &__label {
+          letter-spacing: 0.5px;
+     }
+     &__container {
+          position: relative;
+          display: inline-block;
+          height: 1.5rem;
+          width: 3rem;
+     }
+     &__input {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+          // &:checked + .switch__slider {
+          //      background: white
+          // } add js here
+          &:checked + .switch__slider::before {
+               -webkit-transform: translateX(1.5rem);
+               -ms-transform: translateX(1.5rem);
+               transform: translateX(1.5rem);
+          }
+     }
+     &__slider {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: $color-toggle;
+          cursor: pointer;
+          -webkit-transition: .4s;
+          transition: .4s;
+          &::before {
+               content: '';
+               position: absolute;
+               left: 2px;
+               bottom: (1.5rem - 1.2rem) / 2;
+               height: 1.2rem;
+               width: 1.2rem;
+               background-color: $bg-card;
+               -webkit-transition: .4s;
+               transition: .4s;
+          }
+          &--round {
+               border-radius: 2rem;
+               &::before {
+                    border-radius: 50%;
+               }
+          }
+     }
+}
+.card {
+     background-color: $bg-card;
+     border-radius: 0.2rem;
+     &--big {
+          position: relative;
+          margin-top: 1.6rem;
+          &:before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               height: 0.2rem;
+          }
+          &.card {
+               &--fb {
+                    &:before {
+                         background: $color-fb;
+                    }
+               }
+               &--tw {
+                    &:before {
+                         background: $color-tw;
+                    }
+               }
+               &--insta {
+                    &:before {
+                         background: $color-insta;
+                    }
+               }
+               &--youtube {
+                    &:before {
+                         background: $color-youtube;
+                    }
+               }
+          }
+          .card {
+               &__container {
+                    padding: 2rem 0 1.4rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+               }
+               &__media {
+                    display: flex;
+                    align-items: center;
+               }
+               &__followers {
+                    margin: 1.4rem 0;
+               }
+               &__stats {
+                    
+               }
+          }
+     }
+     &--small {
+          margin-top: 1rem;
+          .card {
+               &__container {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 2.4rem);
+                    padding: 1.5rem;
+               }
+               &__text {
+                    padding-top: 3px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+               }
+               &__number {
+                    padding-top: 6px;
+                    color: $text-secondary;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+               }
+          }
+          .media {
+               text-align: right;
+          }
+          .stats {
+               align-self: end;
+               justify-self: end;
+               margin-right: 3px;
+          }
+     }
+}
+.media {
+     &__icon {
+          margin-right: 0.5rem;
+          height: 20px;
+          width: 20px;
+     }
+}
+.followers {
+     text-align: center;
+     &__number {
+          margin-bottom: 0.5rem;
+          color: $text-secondary;
+          font-size: 3.6rem;
+          font-weight: 700;
+     }
+     &__text {
+          font-size: 0.8rem;
+          letter-spacing: 0.3rem;
+          text-transform: uppercase;
+     }
+}
+.stats {
+     display: flex;
+     align-items: center;
+     color: $text-secondary;
+     font-size: 0.8rem;
+     font-weight: 700;
+     letter-spacing: 0.5px;
+     &--up {
+          color: $color-up;
+     }
+     &--down {
+          color: $color-down;
+     }
+     &__number {
+          margin: 0.2rem;
+     }
+}
