@@ -5,6 +5,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
      <title>Frontend Mentor | [Social Media Dashboard]</title>
+     <link rel="stylesheet" href="styles/mode-dark.css">
      <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
      <style>
           .attribution { font-size: 11px; text-align: center; }
@@ -21,9 +22,11 @@
                               <p class="main__total">Total Followers: 23,004</p>
                          </div>
                          <div class="main__switch switch">
-                              <label class="switch__label">Dark Mode</label>
-                              <input type="switch__input">
-                              <span class="switch__slider switch__slider--round"></span>
+                              <p class="switch__label">Dark Mode</p>
+                              <label class="switch__container">
+                                   <input class="switch__input" type="checkbox">
+                                   <span class="switch__slider switch__slider--round"></span>
+                              </label>
                          </div>
                     </header>
                     <div class="main__cards">
@@ -37,14 +40,14 @@
                                         <p class="followers__number">1987</p>
                                         <p class="followers__text">Followers</p>
                                    </div>
-                                   <div class="card__stats stats stats--up">
+                                   <div class="card__stats stats">
                                         <img class="stats__icon" src="./assets/img/icon-up.svg" alt="up">
                                         <p class="stats__number">12</p>
                                         <p class="stats__day">Today</p>
                                    </div>
                               </div>
                          </div>
-                         <div class="card card--big card--fb">
+                         <div class="card card--big card--tw">
                               <div class="card__container">
                                    <div class="card__media media">
                                         <img class="media__icon" src="./assets/img/icon-twitter.svg" alt="Twitter">
@@ -61,7 +64,7 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="card card--big card--fb">
+                         <div class="card card--big card--insta">
                               <div class="card__container">
                                    <div class="card__media media">
                                         <img class="media__icon" src="./assets/img/icon-instagram.svg" alt="Instagram">
@@ -78,7 +81,7 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="card card--big card--fb">
+                         <div class="card card--big card--youtube">
                               <div class="card__container">
                                    <div class="card__media media">
                                         <img class="media__icon" src="./assets/img/icon-youtube.svg" alt="Youtube">
@@ -97,19 +100,19 @@
                          </div>
                     </div>
                </section>
-               <section class="dashboard__today">
-                    <h2 class="today__title">Overview - Today</h2>
-                    <div class="today__cards">
+               <section class="dashboard__secondary secondary">
+                    <h2 class="secondary__title">Overview - Today</h2>
+                    <div class="secondary__cards">
                          <div class="card card--small">
                               <div class="card__container">
                                    <div class="card__cell">
                                         <p class="card__text">Page Views</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">87</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-facebook.svg" alt="Facebook">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">87</p>
                                    </div>
                                    <div class="card__cell stats stats--up">
                                         <img class="stats__icon" src="./assets/img/icon-up.svg" alt="up">
@@ -122,11 +125,11 @@
                                    <div class="card__cell">
                                         <p class="card__text">Likes</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">52</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-facebook.svg" alt="Facebook">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">52</p>
                                    </div>
                                    <div class="card__cell stats stats--down">
                                         <img class="stats__icon" src="./assets/img/icon-down.svg" alt="down">
@@ -139,11 +142,11 @@
                                    <div class="card__cell">
                                         <p class="card__text">Likes</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">5462</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-instagram.svg" alt="Instagram">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">5462</p>
                                    </div>
                                    <div class="card__cell stats stats--up">
                                         <img class="stats__icon" src="./assets/img/icon-up.svg" alt="up">
@@ -156,11 +159,11 @@
                                    <div class="card__cell">
                                         <p class="card__text">Profile Views</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">52k</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-instagram.svg" alt="Instagram">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">52k</p>
                                    </div>
                                    <div class="card__cell stats stats--up">
                                         <img class="stats__icon" src="./assets/img/icon-up.svg" alt="up">
@@ -169,17 +172,17 @@
                               </div>
                          </div>
                     </div>
-                    <div class="today__cards">
+                    <div class="secondary__cards">
                          <div class="card card--small">
                               <div class="card__container">
                                    <div class="card__cell">
                                         <p class="card__text">Retweets</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">117</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-twitter.svg" alt="Twitter">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">117</p>
                                    </div>
                                    <div class="card__cell stats stats--up">
                                         <img class="stats__icon" src="./assets/img/icon-up.svg" alt="up">
@@ -192,11 +195,11 @@
                                    <div class="card__cell">
                                         <p class="card__text">Likes</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">507</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-twitter.svg" alt="Twitter">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">507</p>
                                    </div>
                                    <div class="card__cell stats stats--up">
                                         <img class="stats__icon" src="./assets/img/icon-up.svg" alt="up">
@@ -209,11 +212,11 @@
                                    <div class="card__cell">
                                         <p class="card__text">Likes</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">107</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-youtube.svg" alt="Youtube">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">107</p>
                                    </div>
                                    <div class="card__cell stats stats--down">
                                         <img class="stats__icon" src="./assets/img/icon-down.svg" alt="down">
@@ -226,11 +229,11 @@
                                    <div class="card__cell">
                                         <p class="card__text">Total Views</p>
                                    </div>
-                                   <div class="card__cell">
-                                        <p class="card__number">1407</p>
-                                   </div>
                                    <div class="card__cell media">
                                         <img class="media__icon" src="./assets/img/icon-youtube.svg" alt="Youtube">
+                                   </div>
+                                   <div class="card__cell">
+                                        <p class="card__number">1407</p>
                                    </div>
                                    <div class="card__cell stats stats--down">
                                         <img class="stats__icon" src="./assets/img/icon-down.svg" alt="down">
