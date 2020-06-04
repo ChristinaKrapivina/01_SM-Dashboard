@@ -8,13 +8,6 @@
      font-weight: 700;
      src: url('./../assets/fonts/inter/Inter-Bold-slnt=0.ttf') format('truetype');
 }
-
-$font-small: 14px;
-
-body {
-     background: inherit;
-     color: $text-primary;
-     font-family: 'Inter Regular', sans-serif;
-     font-size: $font-small;
-     line-height: 1;
+html {
+     font-size: 14px;
 }
