@@ -1,3 +1,28 @@
+@mixin media-medium {
+     @media (min-width: 668px) { @content; }
+}
 @mixin media-large {
-     @media (mix-width: 1440px) { @content; }
+     @media (min-width: 1440px) { @content; }
+}
+@mixin flex($column-or-row: row, $align: false, $justify: false) {
+     display: flex;
+     flex-direction: $column-or-row;
+     
+     @if $align {
+          align-items: $align;
+     }
+     @if $justify {
+          justify-content: $justify;
+     }
+}
+@mixin hr($top-or-bottom) {
+     content: '';
+     position: absolute;
+     #{$top-or-bottom}: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background-color: $text-primary;
+     opacity: 0.2;
+     transition: 0.4s;
 }
