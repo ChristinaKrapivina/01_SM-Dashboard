@@ -1,0 +1,315 @@
+@import 'utils/resets.scss';
+@import 'utils/typography.scss';
+@import 'utils/colors-general.scss';
+@import 'utils/mixins.scss';
+
+$trans-time: 0.4s;
+body {
+     background: $bg-main;
+     color: $text-primary;
+     font-family: 'Inter Regular', sans-serif;
+     font-size: 1rem;
+     line-height: 1;
+     transition: $trans-time;
+}
+.dashboard {
+     background: $bg-main;
+     transition: $trans-time;
+     &__container {
+          margin: 0 auto;
+          padding: 2.9rem 1.8rem;
+          max-width: 1440px;
+          @include media-large {
+               padding-right: 11.7rem;
+               padding-left: 11.5rem;
+          }
+     }
+     &__main {
+          margin-bottom: 1.8rem;
+     }
+}
+.main {
+     &__header {
+          @include flex(column);
+          margin-bottom: 2.8rem;
+          @include media-large {
+               @include flex(row, center, space-between);
+               margin-bottom: 3.3rem;
+          }
+     }
+     &__content {
+          position: relative;
+          padding-bottom: 1.8rem;
+          margin-bottom: 1.2rem;
+          font-family: 'Inter Bold', sans-serif;
+          letter-spacing: 0.1px;
+          &::after {
+               @include hr(bottom);
+          }
+          @include media-large {
+               padding-bottom: 0;
+               margin-bottom: 0;
+               &:after {
+                    display: none;
+               }
+          }
+     }
+     &__title {
+          margin-bottom: 0.5rem;
+          color: $text-secondary;
+          font-size: 1.7rem;
+          transition: $trans-time;
+          @include media-large {
+               font-size: 2rem;
+          }
+     }
+     &__total {
+          @include media-large {
+               margin-left: 3px;
+          }
+     }
+     &__switch {
+          @include flex(row, center, space-between);
+          @include media-large {
+               margin-bottom: 0.6rem;
+          }
+     }
+}
+.main__cards, .secondary__cards {
+     @include flex(column, center);
+     @include media-medium {
+          @include flex(row, false, space-evenly);
+          flex-wrap: wrap;
+          max-width: 720px;
+          margin: 0 auto;
+     }
+     @include media-large {
+          justify-content: space-between;
+          max-width: 100%;
+          margin-left: 0.3rem;
+     }
+}
+.secondary {
+     &__title {
+          padding-top: 0.2rem;
+          margin-bottom: 2rem;
+          color: $text-secondary;
+          font-family: 'Inter Bold', sans-serif;
+          font-size: 1.6rem;
+          letter-spacing: 1px;
+          transition: $trans-time;
+          @include media-large {
+               margin-left: 0.3rem;
+               margin-bottom: 1.8rem;
+          }
+     }
+     &__cards {
+          @include media-large {
+               margin-bottom: 0.6rem;
+          }
+     }
+}
+.switch {
+     &__label {
+          font-family: 'Inter Bold', sans-serif;
+          margin-right: 1rem;
+     }
+     &__container {
+          position: relative;
+          display: inline-block;
+          height: 24px;
+          width: 48px;
+     }
+     &__input {
+          visibility: hidden;
+          height: 0;
+          width: 0;
+          &:checked + .switch__slider::before {
+               transform: translateX(1.5rem);
+          }
+     }
+     &__slider {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: $color-toggle;
+          cursor: pointer;
+          transition: $trans-time;
+          &::before {
+               content: '';
+               position: absolute;
+               left: 3px;
+               bottom: 2.5px;
+               height: 18px;
+               width: 18px;
+               background-color: $bg-card;
+               transition: $trans-time;
+          }
+          &--round {
+               border-radius: 28px;
+               &::before {
+                    border-radius: 50%;
+               }
+          }
+     }
+}
+.card {
+     max-width: 326px;
+     width: 100%;
+     @include media-large {
+          max-width: 255px;
+     }
+     background-color: $bg-card;
+     border-radius: 0.4rem;
+     overflow: hidden;
+     transition: $trans-time;
+     &--big {
+          position: relative;
+          margin-bottom: 1.8rem;
+          &:before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               height: 0.3rem;
+          }
+          &.card {
+               &--fb:before {
+                    background: $color-fb;
+               }
+               &--tw:before {
+                    background: $color-tw;
+               }
+               &--insta:before {
+                    background: $color-insta;
+               }
+               &--youtube:before {
+                    background: $color-youtube;
+               }
+          }
+          .card {
+               &__container {
+                    padding: 2.3rem 0 1.8rem;
+                    @include flex(column, center);
+               }
+               &__media {
+                    @include flex(row, center);
+               }
+               &__followers {
+                    margin: 1.8rem 0 2rem;
+               }
+          }
+     }
+     &--small {
+          margin-bottom: 1rem;
+          .card {
+               &__container {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    padding: 2rem 2.2rem 1.8rem 1.5rem;
+               }
+               &__cell:nth-child(odd) {
+                    padding-left: 0.3rem;
+               }
+               &__cell:nth-last-child(-n+2) {
+                    align-self: end;
+               }
+               &__cell:nth-last-child(1) {
+                    justify-self: end;
+               }
+               &__text {
+                    padding-top: 0.2rem;
+                    font-family: 'Inter Bold', sans-serif;
+                    font-size: 1rem;
+               }
+               &__number {
+                    padding-top: 0.5rem;
+                    color: $text-secondary;
+                    font-family: 'Inter Bold', sans-serif;
+                    font-size: 2.2rem;
+                    transition: $trans-time;
+               }
+          }
+          .media {
+               text-align: right;
+          }
+     }
+}
+.media {
+     &__icon {
+          height: auto;
+          width: 20px;
+     }
+     &__tag {
+          margin-left: 0.6rem;
+          font-family: 'Inter Bold', sans-serif;
+          font-size: 0.8rem;
+          line-height: 1.5;
+          letter-spacing: 0.5px;
+     }
+}
+.followers {
+     text-align: center;
+     &__number {
+          margin-bottom: 0.6rem;
+          color: $text-secondary;
+          font-family: 'Inter Bold', sans-serif;
+          font-size: 3.9rem;
+          transition: $trans-time;
+     }
+     &__text {
+          font-size: 0.9rem;
+          letter-spacing: 0.35rem;
+          text-transform: uppercase;
+     }
+}
+.stats {
+     @include flex(row, center);
+     color: $text-secondary;
+     font-family: 'Inter Bold', sans-serif;
+     font-size: 0.8rem;
+     letter-spacing: 0.5px;
+     transition: $trans-time;
+     &--up {
+          color: $color-up;
+     }
+     &--down {
+          color: $color-down;
+     }
+     &__number {
+          margin: 0 0.2rem;
+     }
+}
+.footer {
+     background-color: $bg-main;
+     transition: $trans-time;
+     &__container {
+          position: relative;
+          padding: 3rem 0;
+          margin: 0 1.5rem;
+          
+          color: $text-primary;
+          &::before {
+               @include hr(top);
+          }
+          @include media-large {
+               &:before {
+                    display: none;
+               }
+          }
+          .attribution { 
+               margin-bottom: 0.5rem;
+               font-size: 0.7rem; 
+               letter-spacing: 0.1rem;
+               text-align: center; 
+               > a { 
+                    color: hsl(228, 45%, 44%); 
+                    text-decoration: underline;
+               }
+          }
+     }
+}
